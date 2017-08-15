@@ -21,4 +21,12 @@ describe('number', function () {
   it('converts 1 to 1', () => expect(as.number(1)).to.equal(1));
   it('converts 1.1 to 1', () => expect(as.integer(1.1)).to.equal(1));
   it('converts "1.1" to 1', () => expect(as.integer('1.1')).to.equal(1));
+  it('converts 1.1111 to 1.11', () => expect(as.number(1.1111, {
+    withPrecision: 2,
+    allowDecimals: true
+  })).to.equal(1.11));
+  it('converts "1" to 1 with precision', () => expect(as.number('1', {
+    withPrecision: 2,
+    allowDecimals: true
+  })).to.equal(1));
 });
